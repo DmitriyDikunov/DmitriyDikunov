@@ -1,0 +1,66 @@
+import csv 
+import sys
+group=int(input("Выбирите группу студентов: 1- Радиотехника, 2-Международные отношения"))
+if group== 1:     
+    choice=int(input("Выберите действие с файлом: Прочитать файл 1; Перезаписать файл 2; Добавлене в файл 3; Найти данные в файле 4; Сортировать по среднему баллу 5 "))
+    if choice == 1 :
+        file = open('students.txt', encoding ='utf-8')
+        print(file.read())
+        file.close()
+    elif choice == 2 :
+        newstud=(input("Введите новые имена студентов и их баллы"))
+        file = open('students.txt','w', encoding ='utf-8')
+        file.write(newstud)
+        file.close()
+    elif choice == 3 :
+        grade = input("Введите балл ЗНО ")
+        addstud = input("ФИО кого добавить ")
+        file = open('students.txt','a', encoding ='utf-8')
+        file.write ('\n' +grade+ " " +addstud)
+        file.close()
+    elif choice == 4 :
+        file = open ('students.txt', 'r', encoding = 'utf-8')
+        search = input('Введите что хотите найти ')
+        read= file.read()
+        file.close()
+        if search in read :
+            print("Найдено")
+        else :
+            print("Не найдено")
+    elif choice == 5 :
+        file = open('students.txt', encoding ='utf-8')
+    for t in sorted(file) :
+        print(t, end= ' ')
+else : 
+    choice=int(input("Выберите действие с файлом: Прочитать файл 1; Перезаписать файл 2; Добавлене в файл 3; Найти данные в файле 4; Сортировать по среднему баллу 5 "))
+    if choice == 1 :
+        file = open('students2.txt', encoding ='utf-8')
+        print(file.read())
+        file.close()
+    elif choice == 2 :
+        newstud=(input("Введите новые имена студентов и их баллы"))
+        file = open('students2.txt','w', encoding ='utf-8')
+        file.write(newstud)
+        file.close()
+    elif choice == 3 :
+        grade = input("Введите балл ЗНО ")
+        addstud = input("ФИО кого добавить ")
+        file = open('students2.txt','a', encoding ='utf-8')
+        file.write ('\n' +grade+ " " +addstud)
+        file.close()
+    elif choice == 4 :
+        file = open ('students2.txt', 'r', encoding = 'utf-8')
+        search = input('Введите что хотите найти ')
+        read= file.read()
+        file.close()
+        if search in read :
+            print("Найдено")
+        else :
+            print("Не найдено")
+    elif choice == 5 :
+        file = open('students2.txt', encoding ='utf-8')
+        for t in sorted(file) :
+            print(t, end= ' ')
+        
+
+    
