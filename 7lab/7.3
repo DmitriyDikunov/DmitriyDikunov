@@ -1,0 +1,10 @@
+import matplotlib.pyplot as plt
+from collections import Counter
+import re
+with open('text.txt', 'r', encoding = 'utf-8') as f:
+    for i in f:
+        text = i
+        chars = re.compile(r"\.\.\.|\.|\!|\?")
+        count = Counter(chars.findall(text))
+plt.bar(*zip(*count.most_common()), width=1, color='yellow')
+plt.show()
