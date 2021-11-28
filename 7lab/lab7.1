@@ -1,0 +1,12 @@
+# y(x)=5*sin(10x)*sin(3x)/(x^(1/2)), x=[1...7] 
+from numpy import *
+import matplotlib.pyplot as plt
+from collections import Counter
+x= linspace(1,7,200) 
+y = 5*sin(10*x)*sin(3*x)/(x**(1/2)) 
+plt.plot(x,y, 'r')
+plt.xlabel('x')
+plt.ylabel('y')
+plt.legend()
+plt.show()
+plt.savefig('grafik.png', dpi=200)
