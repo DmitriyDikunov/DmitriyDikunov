@@ -1,0 +1,50 @@
+class Library() :   
+    def init (self, author, year, genre):
+        self.autor= author
+        self.year=year
+        self.genre=genre 
+my_book=Library(input("Имя автора>>> "),int(input("Год>>> ")),input("Жанр>>> "))
+authors=['John Tolkien','Conan Doyle', 'Mikhail Bulgakov', 'Strugatskie brothers', 'Ilf and Petrov']
+years=[1954, 1887, 1937, 1969, 1923]
+genres=['fantasy','detective', 'roman', 'fantasy', 'satiric roman']
+books=['Lord of the Rings','Sherlock Holmes', 'Master and Margarita', 'Inhabited island']
+while True  : 
+        choice= int(input("1-добавить автора, 2-удалить автора, 3-добавить год, 4-удалить год, 5-добавить жанр, 6 -удалить жанр, 7-добавить книгу, 8- удалить книгу, 9-закончить изменения "))
+        if choice == 1 :
+            a=input(' ')
+            authors.append(a)
+            print (authors) 
+        elif choice == 2 :
+            adel=input(' ')
+        if adel in authors :
+            authors.remove(adel)
+            print(authors)
+        elif choice == 3: 
+            y=int(input(' '))
+            years.append(y)
+            print(years)
+        elif choice == 4: 
+            ydel=int(input(''))
+        if ydel in years :
+            years.remove(ydel)
+            print(years)
+        elif choice == 5 :
+            g=input(' ')
+            genres.append(g)
+            print(genres)
+        elif choice == 6 :
+            gdel=input(' ')
+        if gdel in genres :
+            genres.remove(gdel)
+            print(genres)
+        elif choice == 7 :
+            b= input(' ')
+            books.append(b)
+            print(books)
+        elif choice == 8: 
+            bdel=input(' ')
+        if bdel in books :
+            books.remove(bdel)
+            print(books)
+        elif choice == 9:
+            break
