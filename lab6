@@ -1,26 +1,9 @@
-#парсинг новостей 
-import requests 
-from bs4 import BeautifulSoup as BS 
-
-def parse():
-    
-    URL = 'https://apnews.com.ua/ru/top/'
-    HEADERS = {
-        'User-Agent' : 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36 OPR/81.0.4196.52'
-    }
-    response = requests.get(URL, headers= HEADERS)
-    soup =BS(response.content, 'html.parser')
-    items = soup.findAll('div', class_= 'posts__item posts__item--default')
-    news = []
-#Вывод всех новостей
-    for item in items:
-        news.append({
-            'title': item.find('a', class_='card-default__link').get_text(strip=True)
-            'name' : item.find('a', class_ = 'name').get_text(strip=True)
-        
-        })
-
-        for new in news :
-            print(new['title'])
-
-parse()
+import requests
+from bs4 import BeautifulSoup
+url=input("Ссылка на сайт ")
+r = requests.get(url)
+soup = BeautifulSoup(r.content)
+print(len(soup.get_text()))
+print ("HTML тэги " +str(len(soup.find_all('html'))))
+print ("Колличество ссылок: " +str(len(soup.find_all('a'))))
+print ("Колличество изображений " +str(len(soup.find_all('img'))))
